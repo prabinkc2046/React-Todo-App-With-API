@@ -36,6 +36,7 @@ To run this project locally, follow these steps:
 	npm install
 
 ## Usage
+
 Start the development server:
 
 	```bash
@@ -45,6 +46,6 @@ Open your browser and visit http://localhost:3000
 
 ## Technologies Used
 
--React
--Axios
--Bootstrap
+	-React
+	-Axios
+	-Bootstrap
