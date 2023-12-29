@@ -39,13 +39,12 @@ To run this project locally, follow these steps:
 
 Start the development server:
 
-	```bash
+	```
 	npm start
 	```
+	
 
 Open your browser and visit http://localhost:3000
-
-## Technologies Used
 
 ## Technologies Used
 
