@@ -41,11 +41,14 @@ Start the development server:
 
 	```bash
 	npm start
+	```
 
 Open your browser and visit http://localhost:3000
 
 ## Technologies Used
 
-	-React
-	-Axios
-	-Bootstrap
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Axios**: A promise-based HTTP client for making requests to the server.
+- **Bootstrap**: A popular CSS framework for building responsive and visually appealing web applications.
