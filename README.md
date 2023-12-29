@@ -8,7 +8,6 @@ A simple React Todo application that allows users to add tasks, and the tasks ar
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
 
 ## Features
 
@@ -39,9 +38,9 @@ To run this project locally, follow these steps:
 
 Start the development server:
 
-	```
+	
 	npm start
-	```
+	
 	
 
 Open your browser and visit http://localhost:3000
