@@ -21,13 +21,47 @@ export default function PostToDo() {
             if (response.status){
                 console.log("Task is being added");
                 setIsListUpdated(!isListUpdated);
-
             }
             
         } catch (error){
             console.error(error)
         }
         
+    };
+
+    const updateTask = async (id, updatedTask) => {
+        const endpoint = `http://192.168.0.112:5000/todos/${id}`;
+        const response = await axios.put(endpoint, updatedTask, {
+            'headers': {
+                'Content-Type': 'application/json',
+            }
+        });
+        if (response.status === 200){
+            console.log("data is updated successfully.");
+            setIsChecked(!isChecked);
+        }
+    };
+
+    const fetchTask = async () => {
+        const endpoint = "http://192.168.0.112:5000/todos";
+        const response = await axios.get(endpoint);
+        const newTaskList = response.data.tasks;
+        setTaskList(newTaskList);
+      };
+    
+    
+    
+    const deleteTask = async (id, updatedTask) => {
+        const endpoint = `http://192.168.0.112:5000/todos/${id}`;
+        const response = await axios.delete(endpoint, {
+            'headers': {
+                'Content-Type': 'application/json',
+            }
+        });
+        if (response.status === 200){
+            console.log("Task  is deleted successfully.");
+            await postTask(updatedTask);
+        }
     };
 
     const handleSubmitForm = (e) => {
@@ -40,26 +74,6 @@ export default function PostToDo() {
         postTask(newTask);
     };
 
-    const fetchTask = async () => {
-        const endpoint = "http://192.168.0.112:5000/todos";
-        const response = await axios.get(endpoint);
-        const newTaskList = response.data.tasks;
-        setTaskList(newTaskList);
-      };
-    
-    const updateTask = async (id, updatedTask) => {
-        const endpoint = `http://192.168.0.112:5000/todos/${id}`;
-        const response = await axios.put(endpoint, updatedTask, {
-            'headers': {
-                'Content-Type': 'application/json',
-            }
-        });
-        if (response.status === 200){
-            console.log("data is updated successfully.");
-            setIsChecked(!isChecked);
-        }
-    }
-    
     const handleTaskCompleteStatus = (id) => {
         taskList.map((task) => {
             if (task.task_id === id){
@@ -67,14 +81,12 @@ export default function PostToDo() {
                 // const updatedTaskList = [...taskList];
                 // updatedTaskList[taskIndex] = {...updatedTaskList[taskIndex], completed: !task.completed}
                 // setTaskList(updatedTaskList);
-                const updatedTask = {...task, completed: !task.completed}
-                console.log("checked status before click is", isChecked);
+                const updatedTask = {...task, completed: !task.completed};
                 updateTask(task.task_id, updatedTask);
-                console.log("checked status after click is", isChecked)
             }
         })
     };
-    
+
   return (
     <>
     <Form onSubmit={handleSubmitForm} 
