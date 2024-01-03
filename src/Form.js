@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function 
-({onSubmit, taskIdRef, taskNameRef}) {
+({onSubmit, taskNameRef}) {
   return (
   <form onSubmit={onSubmit} className="row g-3">
     <div className="col-12">
