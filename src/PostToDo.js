@@ -4,8 +4,6 @@ import Form from './Form';
 import ListTask from './ListTask';
 
 export default function PostToDo() {
-    const [isListUpdated, setIsListUpdated] = useState(false);
-    // const [completed, setCompleted] = useState(false);
     const [completedTask, setCompletedTask] = useState([]);
     const [incompletedTask, setInCompletedTask] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
@@ -21,7 +19,6 @@ export default function PostToDo() {
             });
             if (response.status){
                 console.log("Task is being added");
-                // setIsListUpdated(!isListUpdated);
                 fetchTask();
             }
             
@@ -121,9 +118,7 @@ export default function PostToDo() {
     <p></p>
 
     <ListTask 
-    updateList={isListUpdated}
     fetchTask={fetchTask}
-    // completed={completed}
     handleTaskCompleteStatus={handleTaskCompleteStatus}
     checked={isChecked}
     completedTask={completedTask}
